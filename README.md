@@ -5,7 +5,7 @@ README.txt
 @Description: Data Generation Workflow
 
 This file outlines the data generation steps used in our publication. For additional informations on how to use the files in this folder-structure, please refer to the corresponding README.txt in each folder, as well as the comments within each file.
-
+```bash
 The directory structure of the repository is as follows:
 ├── COMSOL
 │   ├── FEAFrequencyAnalysis_wMPF_cross_platform.mph
@@ -35,7 +35,7 @@ The directory structure of the repository is as follows:
 │   ├── SimpleBeam.py
 │   └── TwistedBeamGen.py
 └── README.md
-
+```
 ##Data Generation Workflow:
 1) Define your desired use or create a .JSON file of the format of dataset_config/DS_Template.json to specify your dataset generation parameters.
 Decide on what type of beams to generate--twisted or linearly extruded--and use TwistedBeamGen.py or SimpleBeam.py respectively.
@@ -50,3 +50,4 @@ Decide on what type of beams to generate--twisted or linearly extruded--and use 
 
 
 Please cite the corresponding publication if you reuse this code.
+
