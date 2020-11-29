@@ -2,7 +2,7 @@
 
 This file is an aggregate of  relevant packages to run the files presnt in this directory.
 
-## Beam Generator dependencies
+## Beam Generator Dependencies
 Please use the datagencad.yml file for a list of all packages present in the original data generation environment. Due to versioning issues, a direct install from the .yml file may produce errors.
 
 The below comments outline known challenges:
