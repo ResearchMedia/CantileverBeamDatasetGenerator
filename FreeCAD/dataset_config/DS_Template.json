@@ -1,0 +1,20 @@
+{
+	"root_path": "/home/ron/GeneratedData",
+	"dataset_name": "TwistedBeamDS",
+	"src_dataset": "",
+	"extrude_length": 600.0,
+	"min_verts": 3,
+	"max_verts": 30,
+	"min_radius": 24,
+	"max_radius": 63,
+	"twist_angle": 30,
+	"twist_angle_step": 5,
+	"taper_ratio": 1.0,
+	"img_max_x": 128,
+	"img_max_y": 128,
+	"min_px_vol_accuracy": 0.05,
+	"irregularity": 0.4,
+	"spikiness": 0.15,
+	"data_start_idx": 0,
+	"data_end_idx": 17501
+}
