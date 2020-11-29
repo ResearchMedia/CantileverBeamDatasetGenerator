@@ -36,7 +36,7 @@ The directory structure of the repository is as follows:
 │   └── TwistedBeamGen.py
 └── README.md
 ```
-##Data Generation Workflow:
+## Data Generation Workflow:
 1) Define your desired use or create a .JSON file of the format of dataset_config/DS_Template.json to specify your dataset generation parameters.
 Decide on what type of beams to generate--twisted or linearly extruded--and use TwistedBeamGen.py or SimpleBeam.py respectively.
 2) Set the desired beam parameters and generate Beam data. (please refer to the corresponding publications for details)
