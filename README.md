@@ -2,6 +2,7 @@
 README.txt
 
 Author: Philippe Wyder
+
 Description: Data Generation Workflow
 
 This file outlines the data generation steps used in our publication. For additional informations on how to use the files in this folder-structure, please refer to the corresponding README.txt in each folder, as well as the comments within each file.
