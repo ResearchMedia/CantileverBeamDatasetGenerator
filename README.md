@@ -5,7 +5,8 @@ Author: Philippe Wyder
 
 Description: Data Generation Workflow
 
-This file outlines the data generation steps used in our publication. For additional informations on how to use the files in this folder-structure, please refer to the corresponding README.txt in each folder, as well as the comments within each file.
+## Overview
+This file outlines the data generation steps used in our publication: Visual design intuition: Predicting dynamic properties of beams from raw cross-section images. For additional informations on how to use the files in this folder-structure, please refer to the corresponding README.txt in each folder, as well as the comments within each file.
 ```bash
 The directory structure of the repository is as follows:
 ├── COMSOL
@@ -37,7 +38,7 @@ The directory structure of the repository is as follows:
 │   └── TwistedBeamGen.py
 └── README.md
 ```
-## Data Generation Workflow:
+### Data Generation Workflow:
 1) Define your desired use or create a .JSON file of the format of dataset_config/DS_Template.json to specify your dataset generation parameters.
 Decide on what type of beams to generate--twisted or linearly extruded--and use TwistedBeamGen.py or SimpleBeam.py respectively.
 2) Set the desired beam parameters and generate Beam data. (please refer to the corresponding publications for details)
@@ -50,5 +51,16 @@ Decide on what type of beams to generate--twisted or linearly extruded--and use 
 \* Each analysis output file comes pre-loaded with a dummy-beam. This beam gets analyzed first and occupies the first data line in analysis output file of the static analysis and the first three data lines in the output file of the frequency analysis. These lines need to be removed before using the CSV file to add the analysis results to the data set.
 
 
-Please cite the corresponding publication if you reuse this code.
+## Citation
 
+Please cite using the following BibTeX entry:
+```
+@article{VisualDesignIntuition2021,
+  author = {Philippe M. Wyder, Hod Lipson},
+  title = {Visual design intuition: Predicting dynamic properties of beams from raw cross-section images},
+  journal = {Journal of the Royal Society Interface},
+  year = {2021},
+  note = {<URL_TBD>},
+  doi = {<DOI_TBD>}
+}
+```
