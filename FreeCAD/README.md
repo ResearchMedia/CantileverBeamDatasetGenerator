@@ -11,14 +11,16 @@ Vtk may not get pinned the right way in the ordinary Conda-install:
 to install FreeCAD use either
 
 the newest version (dev)
-conda create -n freecad freecad qt=5.9.* -c freecad/label/dev -c conda-forge
+```conda create -n freecad freecad qt=5.9.* -c freecad/label/dev -c conda-forge```
 
 Or install it with a compatible vtk version
-conda create -n freecad freecad vtk=8.1.* -c conda-forge
+```conda create -n freecad freecad vtk=8.1.* -c conda-forge```
 
 Ensure the following packages are present:
 numpy, pillow, pygmsh
 e.g.
+```
 conda install numpy
 conda install pillow
 conda install -c mrossi pygmsh
+```
