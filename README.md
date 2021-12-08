@@ -38,17 +38,38 @@ The directory structure of the repository is as follows:
 └── README.md
 ```
 ### Data Generation Workflow:
-1) Define your desired dataset configuration following the .JSON file format of (dataset_config/DS_Template.json)[] to specify your dataset generation parameters.
+1) Define your desired dataset configuration following the .json file format of (dataset_config/DS_Template.json)[FreeCAD/dataset_config/DS_Template.json] to specify your dataset generation parameters.
 Example json configuration:
 ```
-
+{
+	"root_path": "<dataset_directory_path>",
+	"dataset_name": "<name of dataset>",
+	"src_dataset": "<source dataset path, if beams are generated from existing cross-sections>",
+	"extrude_length": <beam length in mm>,
+	"min_verts": 3,
+	"max_verts": 30,
+	"min_radius": 24,
+	"max_radius": 63,
+	"twist_angle": 30,
+	"twist_angle_step": 5,
+	"taper_ratio": 1.0,
+	"img_max_x": 128,
+	"img_max_y": 128,
+	"min_px_vol_accuracy": 0.05,
+	"irregularity": 0.4,
+	"spikiness": 0.15,
+	"data_start_idx": 0,
+	"data_end_idx": 17501
+}
 ```
-
-3) Set the desired beam parameters and generate Beam data. (please refer to the corresponding publications for details)
-4) Use FEAFrequencyAnalysis_wMPF_cross_platform.mph and FEAStaticAnalysis_cross_platform.mph to analyze the beams. Please note that an installation of COMSOL Multiphysics 5.4 including the CAD Import Module is required to run these analyses.
-5) Use the CSV files resulting from step 3) in combination with csv2numpy.py for the static analysis output, and eigencsv2numpy.py for the frequency analysis output to add the analysis results to the dataset. (Please make sure to remove the dummy beam line at the beginning of the csv file\*)
-6) Use set_extrude_length.py to add extrude_length.npy to each datapoint if needed
-7) [optional] Use generate_antialias_img_from_verts.py to generate different size cross-section images (Warning: This script is CPU parallelized and will use all resources available while running. This may prevent you from doing other work while the script is running)
+3) Generate Beam (please refer to the corresponding publications for details)
+```
+python GenerateBeamDS.py --ds_conf beam_configuration.json
+```
+5) Use (FEAFrequencyAnalysis_wMPF_cross_platform.mph)[COMSOL/FEAFrequencyAnalysis_wMPF_cross_platform.mph] and (FEAStaticAnalysis_cross_platform.mph)[COMSOL/StaticvAnalysis_cross_platform.mph] to analyze the beams. Please note that an installation of COMSOL Multiphysics 5.4 including the CAD Import Module is required to run these analyses.
+6) Use the CSV files resulting from step 3) in combination with csv2numpy.py for the static analysis output, and eigencsv2numpy.py for the frequency analysis output to add the analysis results to the dataset. (Please make sure to remove the dummy beam line at the beginning of the csv file\*)
+7) Use set_extrude_length.py to add extrude_length.npy to each datapoint if needed
+8) [optional] Use generate_antialias_img_from_verts.py to generate different size cross-section images (Warning: This script is CPU parallelized and will use all resources available while running. This may prevent you from doing other work while the script is running)
 
 
 
@@ -72,7 +93,7 @@ Please cite using the following BibTeX entry:
 }
 ```
 ## [Depreciated] Data Generation Workflow:
-1) Define your desired use or create a .JSON file of the format of dataset_config/DS_Template.json to specify your dataset generation parameters.
+1) Define your desired use or create a .json file of the format of dataset_config/DS_Template.json to specify your dataset generation parameters.
 Decide on what type of beams to generate--twisted or linearly extruded--and use TwistedBeamGen.py or SimpleBeam.py respectively.
 2) Set the desired beam parameters and generate Beam data. (please refer to the corresponding publications for details)
 3) Use FEAFrequencyAnalysis_wMPF_cross_platform.mph and FEAStaticAnalysis_cross_platform.mph to analyze the beams. Please note that an installation of COMSOL Multiphysics 5.4 including the CAD Import Module is required to run these analyses.
