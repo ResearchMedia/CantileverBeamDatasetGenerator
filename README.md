@@ -9,9 +9,9 @@ This file outlines the data generation steps used in our publication: Visual des
 ```bash
 The directory structure of the repository is as follows:
 ├── COMSOL
-│   ├── FEAFrequencyAnalysis_wMPF_cross_platform.mph
+│   ├── FrequencyAnalysis_wMPF_cross_platform.mph
 │   ├── README.txt
-│   └── StaticvAnalysis_cross_platform.mph
+│   └── StaticAnalysis_cross_platform.mph
 ├── DatasetAugmentation
 │   ├── csv2numpy.py
 │   ├── eigencsv2numpy.py
@@ -66,7 +66,7 @@ Example json configuration:
 ```
 python GenerateBeamDS.py --ds_conf beam_configuration.json
 ```
-5) Use [FEAFrequencyAnalysis_wMPF_cross_platform.mph](COMSOL/FEAFrequencyAnalysis_wMPF_cross_platform.mph) and [FEAStaticAnalysis_cross_platform.mph](COMSOL/StaticvAnalysis_cross_platform.mph) to analyze the beams. Please note that an installation of COMSOL Multiphysics 5.4 including the CAD Import Module is required to run these analyses.
+5) Use [FrequencyAnalysis_wMPF_cross_platform.mph](COMSOL/FrequencyAnalysis_wMPF_cross_platform.mph) and [FEAStaticAnalysis_cross_platform.mph](COMSOL/StaticAnalysis_cross_platform.mph) to analyze the beams. Please note that an installation of COMSOL Multiphysics 5.4 including the CAD Import Module is required to run these analyses.
 6) Use the CSV files resulting from step 3) in combination with csv2numpy.py for the static analysis output, and eigencsv2numpy.py for the frequency analysis output to add the analysis results to the dataset. (Please make sure to remove the dummy beam line at the beginning of the csv file\*)
 7) Use set_extrude_length.py to add extrude_length.npy to each datapoint if needed
 8) (optional) Use generate_antialias_img_from_verts.py to generate different size cross-section images (Warning: This script is CPU parallelized and will use all resources available while running. This may prevent you from doing other work while the script is running)
@@ -96,7 +96,7 @@ Please cite using the following BibTeX entry:
 1) Define your desired use or create a .json file of the format of dataset_config/DS_Template.json to specify your dataset generation parameters.
 Decide on what type of beams to generate--twisted or linearly extruded--and use TwistedBeamGen.py or SimpleBeam.py respectively.
 2) Set the desired beam parameters and generate Beam data. (please refer to the corresponding publications for details)
-3) Use FEAFrequencyAnalysis_wMPF_cross_platform.mph and FEAStaticAnalysis_cross_platform.mph to analyze the beams. Please note that an installation of COMSOL Multiphysics 5.4 including the CAD Import Module is required to run these analyses.
+3) Use FrequencyAnalysis_wMPF_cross_platform.mph and FEAStaticAnalysis_cross_platform.mph to analyze the beams. Please note that an installation of COMSOL Multiphysics 5.4 including the CAD Import Module is required to run these analyses.
 4) Use the CSV files resulting from step 3) in combination with csv2numpy.py for the static analysis output, and eigencsv2numpy.py for the frequency analysis output to add the analysis results to the dataset. (Please make sure to remove the dummy beam line at the beginning of the csv file\*)
 5) Use set_extrude_length.py to add extrude_length.npy to each datapoint if needed
 6) [optional] Use generate_antialias_img_from_verts.py to generate different size cross-section images (Warning: This script is CPU parallelized and will use all resources available while running. This may prevent you from doing other work while the script is running)
