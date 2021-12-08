@@ -38,7 +38,7 @@ The directory structure of the repository is as follows:
 └── README.md
 ```
 ### Data Generation Workflow:
-1) Define your desired dataset configuration following the .json file format of [FreeCAD/dataset_config/DS_Template.json](dataset_config/DS_Template.json) to specify your dataset generation parameters.
+1) Define your desired dataset configuration following the .json file format of [DS_Template.json](FreeCAD/dataset_config/DS_Template.json) to specify your dataset generation parameters.
 Example json configuration:
 ```
 {
@@ -66,7 +66,7 @@ Example json configuration:
 ```
 python GenerateBeamDS.py --ds_conf beam_configuration.json
 ```
-5) Use [FEAFrequencyAnalysis_wMPF_cross_platform.mph](COMSOL/FEAFrequencyAnalysis_wMPF_cross_platform.mph) and [COMSOL/StaticvAnalysis_cross_platform.mph](FEAStaticAnalysis_cross_platform.mph) to analyze the beams. Please note that an installation of COMSOL Multiphysics 5.4 including the CAD Import Module is required to run these analyses.
+5) Use [FEAFrequencyAnalysis_wMPF_cross_platform.mph](COMSOL/FEAFrequencyAnalysis_wMPF_cross_platform.mph) and [FEAStaticAnalysis_cross_platform.mph](COMSOL/StaticvAnalysis_cross_platform.mph) to analyze the beams. Please note that an installation of COMSOL Multiphysics 5.4 including the CAD Import Module is required to run these analyses.
 6) Use the CSV files resulting from step 3) in combination with csv2numpy.py for the static analysis output, and eigencsv2numpy.py for the frequency analysis output to add the analysis results to the dataset. (Please make sure to remove the dummy beam line at the beginning of the csv file\*)
 7) Use set_extrude_length.py to add extrude_length.npy to each datapoint if needed
 8) (optional) Use generate_antialias_img_from_verts.py to generate different size cross-section images (Warning: This script is CPU parallelized and will use all resources available while running. This may prevent you from doing other work while the script is running)
